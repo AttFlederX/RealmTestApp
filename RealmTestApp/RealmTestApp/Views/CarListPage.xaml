@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="RealmTestApp.Views.CarListPage"
+             Title="{Binding Title}">
+
+    <NavigationPage.TitleView>
+        <StackLayout HorizontalOptions="EndAndExpand">
+            <Button BackgroundColor="Transparent"
+                    TextColor="White"
+                    Text="Add"
+                    Command="{Binding AddCarCommand}"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ListView HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              ItemsSource="{Binding CarList}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding FullModelName}" Detail="{Binding LicensePlate}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+</ContentPage>
